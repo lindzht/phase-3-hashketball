@@ -1,4 +1,6 @@
 # Write your code below game_hash
+require 'pry'
+
 def game_hash
   {
     home: {
@@ -127,3 +129,47 @@ def game_hash
 end
 
 # Write code here
+
+def all_players
+  game_hash[:home][:players] + game_hash[:away][:players]
+end
+
+
+def find_player (player)
+  all_players.each do |player_obj|
+    if player_obj[:player_name] == player
+      return player_obj
+    end
+  end
+end
+
+
+
+# Build a method, num_points_scored that takes in an argument of a player's name and returns the number of points scored for that player.
+
+# def num_points_scored (player)
+#   all_players.each do |player_attribute|
+#    if player_attribute[:player_name] == player
+#       return player_attribute[:points]
+#    end
+#   end
+# end
+
+def num_points_scored (player)
+  player_object = find_player(player)
+  return player_object[:points]
+end
+
+
+def shoe_size (player)
+  player_object = find_player(player)
+  return player_object[:shoe]
+end
+
+def team_colors
+  game_hash.each do |location, location_data|
+    binding.pry
+  end
+end
+
+
